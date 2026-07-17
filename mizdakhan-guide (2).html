@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mizdakhan — The Sacred City of Legends</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF;
+  --sand:#EFE2BE;
+  --sand-dark:#DDC48B;
+  --brown:#A97C50;
+  --brown-deep:#7A5433;
+  --green:#2E4B3D;
+  --green-deep:#1C2F26;
+  --ink:#2A2420;
+  --max:780px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--white);
+  color:var(--ink);
+  font-family:'Karla',sans-serif;
+  font-size:17px;
+  line-height:1.65;
+}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--green);margin:0 0 .3em;}
+p{margin:0 0 1em;}
+a{color:var(--green);}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+/* ---------- Nav ---------- */
+.site-nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--sand);
+  border-bottom:2px solid var(--sand-dark);
+  overflow-x:auto;
+  white-space:nowrap;
+}
+.site-nav .wrap{max-width:none;padding:10px 20px;display:flex;gap:22px;align-items:center;}
+.site-nav a{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--brown-deep);text-decoration:none;
+}
+.site-nav a:hover{color:var(--green);}
+
+/* ---------- Brick divider (signature element) ---------- */
+.brick-divider{display:flex;gap:4px;margin:2.2em 0;}
+.brick{flex:1;height:9px;background:var(--sand-dark);border-radius:1px;}
+.brick--dark{background:var(--brown);}
+
+/* ---------- Cover ---------- */
+.cover{
+  min-height:100vh;
+  background:linear-gradient(180deg,var(--green) 0%,var(--green-deep) 100%);
+  color:var(--sand);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:60px 24px;position:relative;
+}
+.cover .brick-divider{position:absolute;left:0;right:0;padding:0 24px;}
+.cover .brick-divider.top{top:28px;}
+.cover .brick-divider.bottom{bottom:28px;}
+.cover .eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--sand-dark);margin-bottom:22px;
+}
+.cover h1{
+  color:var(--white);font-size:clamp(48px,10vw,110px);font-weight:700;
+  margin:0;line-height:1.02;
+}
+.cover .cover-sub{
+  font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+  color:var(--sand);font-size:clamp(20px,3vw,28px);margin-top:14px;
+}
+.cover .cover-sub2{
+  margin-top:26px;font-family:'Karla',sans-serif;font-size:15px;
+  letter-spacing:.04em;color:var(--sand-dark);text-transform:uppercase;
+}
+.cover-img{
+  margin-top:44px;width:100%;max-width:560px;
+}
+
+/* ---------- Generic page/section ---------- */
+.page{padding:70px 0;}
+.page.alt{background:var(--sand);}
+.eyebrow-label{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brown);
+}
+.page h2.page-title{font-size:36px;margin-top:.2em;}
+
+/* ---------- TOC ---------- */
+.toc-list{list-style:none;margin:20px 0 0;padding:0;}
+.toc-list li a{
+  display:flex;align-items:baseline;gap:14px;
+  text-decoration:none;color:var(--ink);padding:14px 0;
+  border-bottom:1px dashed var(--sand-dark);
+}
+.toc-num{font-family:'IBM Plex Mono',monospace;color:var(--brown);font-size:15px;}
+.toc-name{font-family:'Fraunces',serif;font-size:21px;color:var(--green);}
+.toc-dots{flex:1;}
+
+/* ---------- Quick facts ---------- */
+.quickfacts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0;
+}
+.qf-card{
+  background:var(--sand);border:1px solid var(--sand-dark);border-radius:4px;
+  padding:12px 14px;display:flex;flex-direction:column;gap:4px;
+}
+.qf-label{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--brown-deep);
+}
+.qf-value{font-size:14.5px;color:var(--ink);font-weight:600;}
+
+/* ---------- Image placeholders ---------- */
+.img-placeholder{margin:0 0 8px;}
+.img-box{
+  background:repeating-linear-gradient(135deg,var(--sand) 0 14px,var(--sand-dark) 14px 28px);
+  border:1px solid var(--sand-dark);border-radius:6px;
+  aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
+}
+.img-placeholder.hero .img-box{aspect-ratio:21/9;}
+.img-tag{
+  background:var(--green);color:var(--white);
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;padding:6px 14px;border-radius:20px;
+}
+figcaption{
+  font-size:13.5px;color:var(--brown-deep);margin-top:6px;font-style:italic;
+}
+.img-box--photo{
+  background:var(--sand);overflow:hidden;
+}
+.img-box--photo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+figcaption .credit{
+  display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;letter-spacing:.03em;color:var(--brown);margin-top:3px;
+}
+.image-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:18px;
+}
+
+/* ---------- Chapter ---------- */
+.chapter{border-top:6px solid var(--brown);}
+.chapter-banner{
+  background:var(--green);color:var(--white);
+  padding:46px 24px;display:flex;align-items:center;gap:26px;
+  max-width:var(--max);margin:0 auto;
+}
+.chapter-number{
+  font-family:'IBM Plex Mono',monospace;font-size:44px;color:var(--brown)cc;
+  color:#C8A165;opacity:.85;
+}
+.chapter-heading h2{color:var(--white);font-size:40px;margin:0;}
+.pron-chip{
+  display:inline-block;margin-top:8px;font-family:'IBM Plex Mono',monospace;
+  font-size:13px;background:rgba(255,255,255,.12);padding:4px 10px;border-radius:20px;
+  color:var(--sand);
+}
+.chapter-body{max-width:var(--max);margin:0 auto;padding:36px 24px 10px;}
+.section-title{font-size:23px;margin-top:1.6em;}
+
+/* ---------- Boxes ---------- */
+.box{
+  border-radius:6px;padding:20px 22px;margin:22px 0;position:relative;
+  border-left:5px solid var(--brown);
+}
+.box p{margin:.5em 0 0;}
+.box-label{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--brown-deep);
+}
+.box--legend{background:var(--sand);border-left-color:var(--brown);}
+.box--tip{background:#EAF0EC;border-left-color:var(--green);}
+.box--fact{background:var(--sand);border-left-color:var(--brown);}
+.tip-fact-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.story-time{
+  font-family:'Karla',sans-serif;text-transform:none;letter-spacing:0;
+  color:var(--brown-deep);font-style:italic;font-size:12.5px;margin-left:8px;
+}
+.guide-story{
+  background:var(--green-deep);color:var(--sand);border-radius:8px;
+  padding:26px 26px 8px;margin:22px 0;border-left:5px solid var(--brown);
+}
+.guide-story .box-label{color:#C8A165;}
+.guide-story p{color:var(--sand);}
+
+/* ---------- Bullet list (brick icon) ---------- */
+.brick-list{list-style:none;margin:0;padding:0;}
+.brick-list li{
+  position:relative;padding-left:26px;margin-bottom:10px;
+}
+.brick-list li::before{
+  content:'';position:absolute;left:0;top:7px;width:14px;height:8px;
+  background:var(--brown);border-radius:1px;
+}
+
+/* ---------- Q&A ---------- */
+.qa-list{margin-top:10px;}
+.qa-item{padding:14px 0;border-bottom:1px dashed var(--sand-dark);}
+.qa-q{font-weight:700;color:var(--green);margin:0;}
+.qa-q::before{content:'Q. ';color:var(--brown);}
+.qa-a{margin:6px 0 0;}
+.qa-a::before{content:'A. ';color:var(--brown-deep);font-weight:700;}
+
+/* ---------- Tables ---------- */
+.vocab-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:15px;}
+.vocab-table th{
+  background:var(--green);color:var(--white);text-align:left;
+  padding:9px 12px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.vocab-table td{padding:9px 12px;border-bottom:1px solid var(--sand-dark);}
+.vocab-table tr:nth-child(odd) td{background:var(--sand);}
+.vw{font-weight:700;color:var(--brown-deep);white-space:nowrap;}
+
+/* ---------- Timeline ---------- */
+.tl-item{display:grid;grid-template-columns:130px 24px 1fr;gap:6px;margin-bottom:2px;}
+.tl-year{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brown-deep);
+  text-align:right;padding-top:3px;
+}
+.tl-line{display:flex;flex-direction:column;align-items:center;}
+.tl-line::before{content:'';flex:1;width:2px;background:var(--sand-dark);}
+.tl-item:first-child .tl-line::before{background:transparent;}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--brown);flex-shrink:0;}
+.tl-text{padding:0 0 26px;}
+
+/* ---------- Glossary ---------- */
+.gloss-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0 32px;margin-top:10px;
+}
+.gloss-item{
+  padding:10px 0;border-bottom:1px dashed var(--sand-dark);
+  display:flex;flex-direction:column;
+}
+.gloss-term{font-weight:700;color:var(--green);font-family:'Fraunces',serif;font-size:16.5px;}
+.gloss-def{font-size:14.5px;color:var(--ink);}
+
+/* ---------- Sentences ---------- */
+.sentence-list{padding-left:22px;}
+.sentence-list li{margin-bottom:7px;}
+.sentence-group{margin-bottom:30px;}
+
+/* ---------- Sources ---------- */
+.sources-list{padding-left:20px;font-size:14.5px;color:var(--brown-deep);}
+.sources-list li{margin-bottom:6px;}
+
+/* ---------- Footer ---------- */
+.book-footer{
+  background:var(--green-deep);color:var(--sand-dark);text-align:center;
+  padding:40px 24px;font-size:13.5px;
+}
+
+@media (max-width:640px){
+  .quickfacts{grid-template-columns:1fr 1fr;}
+  .image-grid{grid-template-columns:1fr;}
+  .tip-fact-row{grid-template-columns:1fr;}
+  .gloss-grid{grid-template-columns:1fr;}
+  .chapter-banner{flex-direction:column;align-items:flex-start;gap:8px;}
+  .tl-item{grid-template-columns:90px 20px 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav"><div class="wrap">
+  <a href="#intro">Intro</a><a href="#mazlumkhan">Mazlumkhan</a><a href="#shamun">Shamun</a><a href="#jomart">Jomart</a><a href="#khalifa">Khalifa</a><a href="#mademin">Mademin</a><a href="#gyaur">Gyaur</a><a href="#timeline">Timeline</a><a href="#glossary">Glossary</a><a href="#sentences">Sentences</a><a href="#sources">Sources</a>
+</div></nav>
+
+<header class="cover">
+  <div class="brick-divider top"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span></div>
+  <span class="eyebrow">Karakalpakstan · Uzbekistan</span>
+  <h1>Mizdakhan</h1>
+  <div class="cover-sub">The Sacred City of Legends</div>
+  <div class="cover-sub2">A Simple English Guide for Tour Guides</div>
+  <div class="cover-img">
+    
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://central-asia.guide/wp-content/uploads/2021/09/Mizdarkhan_complex-1-1024x683.jpg" alt="Mizdakhan necropolis, Karakalpakstan" loading="lazy">
+    </div>
+    <figcaption>Mizdakhan necropolis, Karakalpakstan<span class="credit">Photo: central-asia.guide — Mizdakhan necropolis, Karakalpakstan</span></figcaption>
+  </figure>
+  </div>
+  <div class="brick-divider bottom"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span></div>
+</header>
+
+<section class="page">
+  <div class="wrap">
+    <span class="eyebrow-label">Contents</span>
+    <h2 class="page-title">Where We Are Going</h2>
+    <ul class="toc-list">
+      <li><a href="#intro"><span class="toc-num">00</span><span class="toc-name">Introduction</span><span class="toc-dots"></span></a></li>
+      
+    <li><a href="#mazlumkhan"><span class="toc-num">01</span><span class="toc-name">Mazlumkhan Sulu</span><span class="toc-dots"></span></a></li>
+    <li><a href="#shamun"><span class="toc-num">02</span><span class="toc-name">Shamun Nabi</span><span class="toc-dots"></span></a></li>
+    <li><a href="#jomart"><span class="toc-num">03</span><span class="toc-name">Jomart Qassab</span><span class="toc-dots"></span></a></li>
+    <li><a href="#khalifa"><span class="toc-num">04</span><span class="toc-name">Khalifa Erejep</span><span class="toc-dots"></span></a></li>
+    <li><a href="#mademin"><span class="toc-num">05</span><span class="toc-name">Mademin Khan</span><span class="toc-dots"></span></a></li>
+    <li><a href="#gyaur"><span class="toc-num">06</span><span class="toc-name">Gyaur Qala (Gawir Qala)</span><span class="toc-dots"></span></a></li>
+      <li><a href="#timeline"><span class="toc-num">·</span><span class="toc-name">Timeline</span><span class="toc-dots"></span></a></li>
+      <li><a href="#glossary"><span class="toc-num">·</span><span class="toc-name">Glossary</span><span class="toc-dots"></span></a></li>
+      <li><a href="#sentences"><span class="toc-num">·</span><span class="toc-name">Useful Sentences for Guides</span><span class="toc-dots"></span></a></li>
+      <li><a href="#sources"><span class="toc-num">·</span><span class="toc-name">Sources</span><span class="toc-dots"></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="page alt" id="intro">
+  <div class="wrap">
+    <span class="eyebrow-label">Introduction</span>
+    <h2 class="page-title">Welcome to Mizdakhan</h2>
+    
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/mizdaxan-0-0-0-0-1596019214.jpg" alt="The ancient necropolis of Mizdakhan, seen across its three sacred hills" loading="lazy">
+    </div>
+    <figcaption>The ancient necropolis of Mizdakhan, seen across its three sacred hills<span class="credit">Photo: uzbekistan.travel — the ancient necropolis of Mizdakhan</span></figcaption>
+  </figure>
+    <p>Mizdakhan is an ancient necropolis — a huge, old cemetery — in Karakalpakstan, in western Uzbekistan. It sits on three low hills, about 20 km west of the city of Nukus, close to the town of Khojeli. People used this site for burials for about 1,700 years, from around the 4th century BC to the 14th century AD.</p>
+<p>Tourists visit Mizdakhan because it feels different from any other place. It is not one single building. It is a whole hillside covered with mausoleums, old graves, a ruined fortress, and famous legends. The most photographed spot is the underground mausoleum of Mazlumkhan Sulu. Many visitors also love the 'World Clock' legend at Khalifa Erejep and the mysterious 25-metre tomb at Shamun Nabi.</p>
+<p>Mizdakhan is not currently listed as a UNESCO World Heritage Site on its own. However, it lies within the wider Khorezm region, whose ancient desert monuments are part of Uzbekistan's UNESCO Tentative List. This means the country hopes such sites may gain World Heritage status in the future.</p>
+<p>Before visiting, tourists should know a few practical things. There is no entry fee, but many visitors leave a small donation. Modest clothing is expected, since this is a living, sacred site for local people, not only a museum. There are many stairs and uneven paths, so comfortable shoes are important. There are no toilets on site. Finally, guides should always remind tourists to be respectful — Mizdakhan is still an active place of prayer and pilgrimage for local families.</p>
+  </div>
+</section>
+
+
+  <section class="chapter" id="mazlumkhan">
+    <div class="chapter-banner">
+      <span class="chapter-number">01</span>
+      <div class="chapter-heading">
+        <h2>Mazlumkhan Sulu</h2>
+        <span class="pron-chip">(maz-LOOM-khan soo-LOO)</span>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      
+  <div class="quickfacts">
+    
+      <div class="qf-card">
+        <span class="qf-label">Location</span>
+        <span class="qf-value">Eastern hill of Mizdakhan necropolis</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Century</span>
+        <span class="qf-value">12th–14th century AD</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Type</span>
+        <span class="qf-value">Underground mausoleum</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Period</span>
+        <span class="qf-value">Medieval Khorezm / Golden Horde</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Religion</span>
+        <span class="qf-value">Islamic (built on an older holy place)</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Interesting fact</span>
+        <span class="qf-value">Most of the building is under the ground.</span>
+      </div>
+  </div>
+      
+  <figure class="img-placeholder hero">
+    <div class="img-box img-box--photo">
+      <img src="https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/mizdaxan6-0-0-0-0-1596019573.jpg" alt="The stone entrance and dome of Mazlumkhan Sulu" loading="lazy">
+    </div>
+    <figcaption>The stone entrance and dome of Mazlumkhan Sulu<span class="credit">Photo: uzbekistan.travel — the underground mausoleum at Mizdakhan</span></figcaption>
+  </figure>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <h3 class="section-title">History</h3>
+      <p>Mazlumkhan Sulu is the most famous building at Mizdakhan. People built it between the 12th and the 14th century. It has two parts. One part is above the ground. The other part is under the ground. Visitors walk down a small stone staircase into a large hall shaped like a cross. The hall has three domes above it.</p>
+<p>Some historians think the underground room was first a place for prayer, not a grave. Later, people used it as a mausoleum. Inside, the walls have blue tiles with beautiful patterns. It is always cool inside, even in the hot summer.</p>
+<p>The building is very old, but it is in good condition. This is because most of it is under the ground. The ground protected it from wind, sun, and war. Today, it is the number one stop for every visitor to Mizdakhan.</p>
+
+      <div class="box box--legend">
+        <span class="box-label">Legend (this is a local story, not a proven fact)</span>
+        <p>A long time ago, a ruler had a beautiful daughter named Mazlumkhan. Many rich men wanted to marry her. But she loved a poor architect. Her father was angry. He said: "Build a tower as tall as the sky in one night, and you can marry my daughter."</p>
+<p>The architect worked all night. He finished the tower! But the ruler still said no. In great sadness, the architect jumped from the top of the tower. Mazlumkhan loved him so much that she jumped too.</p>
+<p>The ruler was full of regret. He ordered his men to bury the two lovers together. He used the bricks of the broken tower to build their tomb. This is why local people call this place Mazlumkhan Sulu.</p>
+      </div>
+
+      <h3 class="section-title">Architecture</h3>
+      <p>Builders used baked bricks for this mausoleum. The plan of the underground hall looks like a cross. Three domes cover the hall from above. Small windows in the domes let soft light come down into the room.</p>
+<p>The walls have blue and white tiles. This decoration is called majolica. The corners of the room have special carved shapes called muqarnas. They look like small stone honeycombs. There is also a small staircase that connects the ground level to the underground hall.</p>
+
+      <h3 class="section-title">Why Tourists Like It</h3>
+      
+  <ul class="brick-list">
+    <li>It is the most beautiful building in Mizdakhan.</li><li>The underground hall feels mysterious and cool.</li><li>The love story is romantic and easy to remember.</li><li>The blue tiles make great photos.</li><li>It is a short, easy walk from the main gate.</li>
+  </ul>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <div class="guide-story">
+        <span class="box-label">Guide Story <span class="story-time">~1 minute</span></span>
+        <p>"Welcome to Mazlumkhan Sulu. Look down — most of this building is under our feet! Let's go down the stairs together. Watch your step, please.</p>
+<p>Here, under the ground, is a large room with three domes. Local people say a princess named Mazlumkhan is buried here, next to the man she loved. Her father did not let them marry. So they both died for love, and her father built this tomb for them together.</p>
+<p>Look at the blue tiles on the walls. This pattern is called majolica. It is many hundreds of years old, but it still looks beautiful. Take a photo here — this is one of the best spots in Mizdakhan."</p>
+      </div>
+
+      <h3 class="section-title">Tourist Questions</h3>
+      
+  <div class="qa-list">
+    
+      <div class="qa-item">
+        <p class="qa-q">Is the love story true?</p>
+        <p class="qa-a">No one knows for sure. It is a local legend, not a proven historical fact.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why is the building underground?</p>
+        <p class="qa-a">Historians think it helped protect the building for hundreds of years.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">How old is it exactly?</p>
+        <p class="qa-a">Experts believe it was built between the 12th and 14th centuries.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Can we go inside?</p>
+        <p class="qa-a">Yes. There is a small staircase. Please watch your step.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Who is buried here?</p>
+        <p class="qa-a">There are old graves inside, but the names on them are not clear today.</p>
+      </div>
+  </div>
+
+      <h3 class="section-title">Guide Vocabulary</h3>
+      
+  <table class="vocab-table">
+    <thead><tr><th>Easy English word</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="vw">mausoleum</td><td>a special building built over a grave</td></tr><tr><td class="vw">underground</td><td>below the ground</td></tr><tr><td class="vw">staircase</td><td>a set of steps going up or down</td></tr><tr><td class="vw">dome</td><td>a round roof, like half a ball</td></tr><tr><td class="vw">tile</td><td>a small flat piece used to cover walls or floors</td></tr><tr><td class="vw">pattern</td><td>a repeated design or shape</td></tr><tr><td class="vw">legend</td><td>an old story that may or may not be true</td></tr><tr><td class="vw">ruler</td><td>a king or leader of a place</td></tr><tr><td class="vw">architect</td><td>a person who designs buildings</td></tr><tr><td class="vw">tomb</td><td>a place where a dead person is buried</td></tr><tr><td class="vw">carved</td><td>cut into a special shape by hand</td></tr><tr><td class="vw">corner</td><td>the place where two walls meet</td></tr><tr><td class="vw">protect</td><td>to keep something safe</td></tr><tr><td class="vw">century</td><td>one hundred years</td></tr><tr><td class="vw">restore</td><td>to fix an old building so it looks good again</td></tr>
+    </tbody>
+  </table>
+
+      <div class="tip-fact-row">
+        
+  <div class="box box--tip">
+    <span class="box-label">Guide Tip</span>
+    <p>Go down the stairs slowly. The steps are old and a little uneven. Wait at the bottom until everyone in your group has arrived, then start your story.</p>
+  </div>
+        
+  <div class="box box--fact">
+    <span class="box-label">Did You Know?</span>
+    <p>Did you know? The floor of the underground hall is cooler than the air outside, even on the hottest summer day.</p>
+  </div>
+      </div>
+
+      <h3 class="section-title">Image Section</h3>
+      <div class="image-grid">
+        
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/mizdaxan6-0-0-0-0-1596019573.jpg" alt="The stone entrance and dome of Mazlumkhan Sulu" loading="lazy">
+    </div>
+    <figcaption>The stone entrance and dome of Mazlumkhan Sulu<span class="credit">Photo: uzbekistan.travel — the underground mausoleum at Mizdakhan</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://static.wixstatic.com/media/86e751_21b1a8aa0ab64b10b3e6b9f8c66da9a6~mv2.jpeg/v1/fit/w_960,h_641,q_90,enc_avif,quality_auto/86e751_21b1a8aa0ab64b10b3e6b9f8c66da9a6~mv2.jpeg" alt="Mausoleums across the wider Mizdakhan hillside" loading="lazy">
+    </div>
+    <figcaption>Mausoleums across the wider Mizdakhan hillside<span class="credit">Photo: intofarlands.com — mausoleums across the Mizdakhan hillside</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Historical reconstruction</span>
+    </div>
+    <figcaption>A drawing of how the mausoleum may have looked when new</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Architectural detail</span>
+    </div>
+    <figcaption>Close-up of the blue majolica tiles on the wall</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Map</span>
+    </div>
+    <figcaption>Location of Mazlumkhan Sulu inside the Mizdakhan complex</figcaption>
+  </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="shamun">
+    <div class="chapter-banner">
+      <span class="chapter-number">02</span>
+      <div class="chapter-heading">
+        <h2>Shamun Nabi</h2>
+        <span class="pron-chip">(shah-MOON nah-BEE)</span>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      
+  <div class="quickfacts">
+    
+      <div class="qf-card">
+        <span class="qf-label">Location</span>
+        <span class="qf-value">Northern hill of Mizdakhan necropolis</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Century</span>
+        <span class="qf-value">First built around the 13th–14th century; rebuilt later</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Type</span>
+        <span class="qf-value">Above-ground mausoleum with seven domes</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Period</span>
+        <span class="qf-value">Islamic period</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Religion</span>
+        <span class="qf-value">Islamic; the man in the legend preached one God</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Interesting fact</span>
+        <span class="qf-value">The tomb inside is over 25 metres long!</span>
+      </div>
+  </div>
+      
+  <figure class="img-placeholder hero">
+    <div class="img-box img-box--photo">
+      <img src="https://central-asia.guide/wp-content/uploads/2021/09/shamun_nabi_mausoleum-1024x682.jpg" alt="The seven domes of the Shamun Nabi mausoleum" loading="lazy">
+    </div>
+    <figcaption>The seven domes of the Shamun Nabi mausoleum<span class="credit">Photo: central-asia.guide — the Shamun Nabi mausoleum</span></figcaption>
+  </figure>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <h3 class="section-title">History</h3>
+      <p>The Shamun Nabi mausoleum stands on the north hill of Mizdakhan. Builders made it from baked brick. It has seven domes. Seven domes are very rare in this region, so this building is special.</p>
+<p>Inside, there is a very long tomb. It is more than 25 metres long! In 1966, archaeologists opened the tomb to look inside. They found no human bones at all. The tomb was empty.</p>
+<p>The old building had many problems with water damage over the years. In 2018, workers took down the old structure. A new building was made to replace it. So the domes you see today are new, but they stand on a very old and holy place.</p>
+
+      <div class="box box--legend">
+        <span class="box-label">Legend (this is a local story, not a proven fact)</span>
+        <p>Local people say a holy man named Shamun Nabi came to this land long before the Prophet Muhammad. He could talk to animals. He could control the wind and the stars. He healed sick people.</p>
+<p>A rival leader, called Giaur, lived nearby. Giaur was in love with Shamun's wife. One day, Shamun found them together. A fight started. Shamun's own loyal dog helped him and attacked Giaur.</p>
+<p>There are many endings to this story. In one version, Shamun died from his wounds. People say his tomb grows longer every year, just like the famous tomb of Daniel in Samarkand.</p>
+      </div>
+
+      <h3 class="section-title">Architecture</h3>
+      <p>This mausoleum has a tall entrance and seven domes in a row. This design is unusual for the region — most buildings here have only one or three domes. Builders used baked bricks. Inside, one very long tomb takes up most of the space.</p>
+<p>The current building is a modern reconstruction. The old original walls were weak and could not be saved. But the layout still follows the old, traditional shape.</p>
+
+      <h3 class="section-title">Why Tourists Like It</h3>
+      
+  <ul class="brick-list">
+    <li>The seven domes look impressive and unusual.</li><li>The 25-metre tomb is one of the strangest sights in Uzbekistan.</li><li>The legend about the loyal dog is a great story to tell.</li><li>It connects to other 'growing tomb' legends in Central Asia.</li>
+  </ul>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <div class="guide-story">
+        <span class="box-label">Guide Story <span class="story-time">~1 minute</span></span>
+        <p>"Now we are at Shamun Nabi. Count the domes with me — one, two, three... seven! Seven domes in one line. This is very rare here.</p>
+<p>Inside is a tomb. It is over 25 metres long. That is longer than a swimming pool! Local people believe a holy man named Shamun Nabi is buried here. They also say the tomb grows a little every year.</p>
+<p>But here is a strange fact: in 1966, scientists opened the tomb. They found nothing inside. It was empty! So the mystery continues. Maybe you can solve it."</p>
+      </div>
+
+      <h3 class="section-title">Tourist Questions</h3>
+      
+  <div class="qa-list">
+    
+      <div class="qa-item">
+        <p class="qa-q">Is the tomb really growing?</p>
+        <p class="qa-a">This is a legend. Archaeologists say the tomb has not changed size.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why was it empty inside?</p>
+        <p class="qa-a">No one knows for sure. This is one of the mysteries of Mizdakhan.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Is this the original building?</p>
+        <p class="qa-a">No. The old building was rebuilt in 2018 because it was damaged.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Who was Shamun Nabi?</p>
+        <p class="qa-a">Local legend says he was a holy man with special powers.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why does it have seven domes?</p>
+        <p class="qa-a">Seven is a special number in local tradition. It also appears in other legends here.</p>
+      </div>
+  </div>
+
+      <h3 class="section-title">Guide Vocabulary</h3>
+      
+  <table class="vocab-table">
+    <thead><tr><th>Easy English word</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="vw">holy</td><td>connected to God or religion</td></tr><tr><td class="vw">mystery</td><td>something that is hard to explain</td></tr><tr><td class="vw">tomb</td><td>a grave, often inside a building</td></tr><tr><td class="vw">preach</td><td>to talk about religion in public</td></tr><tr><td class="vw">rival</td><td>a person who competes with someone else</td></tr><tr><td class="vw">reconstruction</td><td>a new copy of an old building</td></tr><tr><td class="vw">archaeologist</td><td>a scientist who studies old objects and places</td></tr><tr><td class="vw">loyal</td><td>always faithful and true</td></tr><tr><td class="vw">damage</td><td>harm done to something</td></tr><tr><td class="vw">structure</td><td>a building or something that is built</td></tr><tr><td class="vw">row</td><td>a straight line of things</td></tr><tr><td class="vw">unusual</td><td>not common; different from normal</td></tr><tr><td class="vw">empty</td><td>with nothing inside</td></tr><tr><td class="vw">region</td><td>an area of a country</td></tr><tr><td class="vw">layout</td><td>the way parts of a building are arranged</td></tr>
+    </tbody>
+  </table>
+
+      <div class="tip-fact-row">
+        
+  <div class="box box--tip">
+    <span class="box-label">Guide Tip</span>
+    <p>Ask your group to guess how long the tomb is before you tell them. People enjoy guessing games, and it makes the '25 metres' fact more memorable.</p>
+  </div>
+        
+  <div class="box box--fact">
+    <span class="box-label">Did You Know?</span>
+    <p>Did you know? The famous tomb of the Prophet Daniel in Samarkand has the same 'growing tomb' legend.</p>
+  </div>
+      </div>
+
+      <h3 class="section-title">Image Section</h3>
+      <div class="image-grid">
+        
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://central-asia.guide/wp-content/uploads/2021/09/shamun_nabi_mausoleum-1024x682.jpg" alt="The seven domes of the Shamun Nabi mausoleum" loading="lazy">
+    </div>
+    <figcaption>The seven domes of the Shamun Nabi mausoleum<span class="credit">Photo: central-asia.guide — the Shamun Nabi mausoleum</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://static.wixstatic.com/media/86e751_e202bba44e9b4f639b1df09a228850b2~mv2.jpeg/v1/fit/w_960,h_641,q_90,enc_avif,quality_auto/86e751_e202bba44e9b4f639b1df09a228850b2~mv2.jpeg" alt="Tombs and graves near the Shamun Nabi mausoleum" loading="lazy">
+    </div>
+    <figcaption>Tombs and graves near the Shamun Nabi mausoleum<span class="credit">Photo: intofarlands.com — tombs and graves near the north hill</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Historical reconstruction</span>
+    </div>
+    <figcaption>A drawing of the older mausoleum before 2018</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Architectural detail</span>
+    </div>
+    <figcaption>Close-up of the tall entrance portal</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Map</span>
+    </div>
+    <figcaption>Location of Shamun Nabi on the north hill</figcaption>
+  </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="jomart">
+    <div class="chapter-banner">
+      <span class="chapter-number">03</span>
+      <div class="chapter-heading">
+        <h2>Jomart Qassab</h2>
+        <span class="pron-chip">(jo-MART kas-SAHB)</span>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      
+  <div class="quickfacts">
+    
+      <div class="qf-card">
+        <span class="qf-label">Location</span>
+        <span class="qf-value">Next to the Shamun Nabi mausoleum</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Century</span>
+        <span class="qf-value">Ancient; exact date unknown</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Type</span>
+        <span class="qf-value">Burial mound (a hill-shaped tomb)</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Period</span>
+        <span class="qf-value">Possibly linked to the Zoroastrian period</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Religion</span>
+        <span class="qf-value">Pre-Islamic legend, now a local Islamic holy place</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Interesting fact</span>
+        <span class="qf-value">The name means 'Jomart the butcher'.</span>
+      </div>
+  </div>
+      
+  <figure class="img-placeholder hero">
+    <div class="img-box img-box--photo">
+      <img src="https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/mizdaxan2-0-0-0-0-1596019450.jpg" alt="The round earthen mound of Jomart Qassab" loading="lazy">
+    </div>
+    <figcaption>The round earthen mound of Jomart Qassab<span class="credit">Photo: uzbekistan.travel — the necropolis hill near Jomart Qassab</span></figcaption>
+  </figure>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <h3 class="section-title">History</h3>
+      <p>Jomart Qassab is not a building. It is a mound — a small round hill about 5 metres high. It stands close to the Shamun Nabi mausoleum. Older, hidden structures may be underneath it, but they have not been fully studied.</p>
+<p>Some researchers connect this mound to very old Zoroastrian beliefs. Zoroastrian people lived in this area long before Islam came. One idea says this mound may relate to Gayomard, the 'first man' in old Zoroastrian stories. Other people connect this place with the Islamic story of Adam.</p>
+<p>Today, it is a small but meaningful stop on the Mizdakhan tour. It is quiet, unusual, and full of local belief.</p>
+
+      <div class="box box--legend">
+        <span class="box-label">Legend (this is a local story, not a proven fact)</span>
+        <p>Long ago, there was a butcher named Jomart. In years of famine, when food was hard to find, he gave meat to poor people for free. He asked for nothing in return.</p>
+<p>People loved him for his kindness. After he died, they saw him as a saint. They believe the mound is built over his grave.</p>
+<p>There is another local custom too: some people believe that a woman who wants a baby should roll down the mound seven times. This is a folk belief, and it is not related to modern medicine.</p>
+      </div>
+
+      <h3 class="section-title">Architecture</h3>
+      <p>This site is very simple. It is a round mound of earth, not a decorated building. There is no dome, no tile, and no carved stone. Its power comes from the story, not from architecture.</p>
+<p>Because the mound is old and made of soft earth, walking on it can slowly damage it. Visitors should be careful and respectful.</p>
+
+      <h3 class="section-title">Why Tourists Like It</h3>
+      
+  <ul class="brick-list">
+    <li>It has a heart-warming story about kindness and generosity.</li><li>It shows a very different, simple side of Mizdakhan.</li><li>It connects visitors to very old, pre-Islamic beliefs.</li><li>It is a quick and easy stop next to Shamun Nabi.</li>
+  </ul>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <div class="guide-story">
+        <span class="box-label">Guide Story <span class="story-time">~1 minute</span></span>
+        <p>"This small hill in front of us is Jomart Qassab. It does not look like much — just a mound of earth. But the story behind it is beautiful.</p>
+<p>Local people say a butcher named Jomart lived here long ago. In hard years, when people were hungry, he gave meat to the poor for free. He never asked for money. After he died, people remembered his kindness, and they began to call this place holy.</p>
+<p>So, this little hill is really a monument to generosity. Sometimes the smallest places have the biggest stories."</p>
+      </div>
+
+      <h3 class="section-title">Tourist Questions</h3>
+      
+  <div class="qa-list">
+    
+      <div class="qa-item">
+        <p class="qa-q">Is there a real grave inside?</p>
+        <p class="qa-a">Historians are not completely sure. Older structures may lie underneath.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why is it shaped like a hill?</p>
+        <p class="qa-a">This is a traditional mound-style burial, common in ancient Central Asia.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Is the butcher story true?</p>
+        <p class="qa-a">It is a legend passed down by local people, not a documented historical fact.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Can we climb the mound?</p>
+        <p class="qa-a">It is best to walk carefully and follow your guide's advice to protect the site.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why is it next to Shamun Nabi?</p>
+        <p class="qa-a">Both sites are part of the same sacred hill and share old local traditions.</p>
+      </div>
+  </div>
+
+      <h3 class="section-title">Guide Vocabulary</h3>
+      
+  <table class="vocab-table">
+    <thead><tr><th>Easy English word</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="vw">mound</td><td>a small, round hill, often man-made</td></tr><tr><td class="vw">butcher</td><td>a person who sells meat</td></tr><tr><td class="vw">famine</td><td>a time when there is not enough food</td></tr><tr><td class="vw">generous</td><td>willing to give freely to others</td></tr><tr><td class="vw">saint</td><td>a person seen as holy or blessed</td></tr><tr><td class="vw">folk belief</td><td>a traditional idea shared by local people</td></tr><tr><td class="vw">custom</td><td>a traditional way of doing something</td></tr><tr><td class="vw">earth</td><td>soil; the ground</td></tr><tr><td class="vw">kindness</td><td>being caring and helpful to others</td></tr><tr><td class="vw">monument</td><td>something built to remember a person or event</td></tr><tr><td class="vw">respectful</td><td>showing care and good manners</td></tr><tr><td class="vw">site</td><td>a place where something is or was located</td></tr><tr><td class="vw">traditional</td><td>following old customs</td></tr><tr><td class="vw">hidden</td><td>not visible; kept out of sight</td></tr><tr><td class="vw">belief</td><td>something a person accepts as true</td></tr>
+    </tbody>
+  </table>
+
+      <div class="tip-fact-row">
+        
+  <div class="box box--tip">
+    <span class="box-label">Guide Tip</span>
+    <p>Keep this stop short — about one minute. It is a small site, so a short, warm story works better than a long explanation.</p>
+  </div>
+        
+  <div class="box box--fact">
+    <span class="box-label">Did You Know?</span>
+    <p>Did you know? Some local people still visit this mound today and make a wish for good fortune.</p>
+  </div>
+      </div>
+
+      <h3 class="section-title">Image Section</h3>
+      <div class="image-grid">
+        
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/mizdaxan2-0-0-0-0-1596019450.jpg" alt="The round earthen mound of Jomart Qassab" loading="lazy">
+    </div>
+    <figcaption>The round earthen mound of Jomart Qassab<span class="credit">Photo: uzbekistan.travel — the necropolis hill near Jomart Qassab</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://static.wixstatic.com/media/86e751_c3b20106b2b44486984a338440ca169b~mv2.jpeg/v1/fit/w_960,h_641,q_90,enc_avif,quality_auto/86e751_c3b20106b2b44486984a338440ca169b~mv2.jpeg" alt="Graves and mounds across the necropolis nearby" loading="lazy">
+    </div>
+    <figcaption>Graves and mounds across the necropolis nearby<span class="credit">Photo: intofarlands.com — graves and mounds across the necropolis</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Historical reconstruction</span>
+    </div>
+    <figcaption>An illustration of how the site may once have looked</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Architectural detail</span>
+    </div>
+    <figcaption>Close-up of the mound's surface and surrounding graves</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Map</span>
+    </div>
+    <figcaption>Location of Jomart Qassab within the necropolis</figcaption>
+  </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="khalifa">
+    <div class="chapter-banner">
+      <span class="chapter-number">04</span>
+      <div class="chapter-heading">
+        <h2>Khalifa Erejep</h2>
+        <span class="pron-chip">(kha-LEE-fah eh-reh-JEP)</span>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      
+  <div class="quickfacts">
+    
+      <div class="qf-card">
+        <span class="qf-label">Location</span>
+        <span class="qf-value">About 120 metres from Mazlumkhan Sulu</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Century</span>
+        <span class="qf-value">9th–10th century AD</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Type</span>
+        <span class="qf-value">Ruined rectangular mausoleum</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Period</span>
+        <span class="qf-value">Early Islamic period</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Religion</span>
+        <span class="qf-value">Islamic</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Interesting fact</span>
+        <span class="qf-value">People call it the 'World Clock' of Mizdakhan.</span>
+      </div>
+  </div>
+      
+  <figure class="img-placeholder hero">
+    <div class="img-box img-box--photo">
+      <img src="https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/mizdaxan5-0-0-0-0-1596019334.jpg" alt="The ruined wall of Khalifa Erejep with small brick towers nearby" loading="lazy">
+    </div>
+    <figcaption>The ruined wall of Khalifa Erejep with small brick towers nearby<span class="credit">Photo: uzbekistan.travel — fallen bricks stacked by pilgrims at the 'World Clock'</span></figcaption>
+  </figure>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <h3 class="section-title">History</h3>
+      <p>Khalifa Erejep is one of the oldest religious buildings at Mizdakhan. Builders made it in the 9th or 10th century. It is a tall, rectangular structure. Today, one wall and part of the roof have fallen down.</p>
+<p>Archaeologists studied the foundation of the building. They found a layer of reeds under the bricks. This layer helped protect the building from underground water. It also gave the structure some strength during earthquakes. This is why the building has survived so many centuries, even in ruins.</p>
+<p>Today, visitors from many countries come here. Some come for religious reasons. Some come simply because the 'World Clock' legend is so interesting.</p>
+
+      <div class="box box--legend">
+        <span class="box-label">Legend (this is a local story, not a proven fact)</span>
+        <p>People say Khalifa Erejep taught his people for many years during his life. After he died, they believe his spirit continued to teach.</p>
+<p>The most famous legend is the 'World Clock.' People say one brick falls from this building every year. When the very last brick falls, the world will end.</p>
+<p>Because of this belief, visitors collect fallen bricks. They stack them into small towers of exactly seven bricks. Seven is a lucky number in local tradition. People believe this act helps to protect the world a little longer.</p>
+      </div>
+
+      <h3 class="section-title">Architecture</h3>
+      <p>The building has a simple rectangular shape, made from sun-dried and baked brick. Today, only three walls and parts of the roof remain. The foundation contains a hidden layer of reeds, which is an early form of earthquake protection.</p>
+<p>There is little decoration compared to Mazlumkhan Sulu. Its power is in its age and its legend, not in fancy tiles or carvings.</p>
+
+      <h3 class="section-title">Why Tourists Like It</h3>
+      
+  <ul class="brick-list">
+    <li>The 'World Clock' legend is fun and easy to remember.</li><li>Tourists enjoy stacking seven bricks themselves.</li><li>It is one of the oldest structures in Mizdakhan.</li><li>The ruined look feels dramatic and photogenic.</li>
+  </ul>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <div class="guide-story">
+        <span class="box-label">Guide Story <span class="story-time">~1 minute</span></span>
+        <p>"This ruin is called Khalifa Erejep. Local people call it the 'World Clock.' Look closely — do you see the small towers of bricks around us?</p>
+<p>The legend says one brick falls from this old wall every year. When the last brick falls, it will be the end of the world! So visitors collect the fallen bricks. They build small towers with exactly seven bricks, because seven is a lucky number here.</p>
+<p>Would you like to build one too? Please only use loose bricks from the ground, not bricks from the wall."</p>
+      </div>
+
+      <h3 class="section-title">Tourist Questions</h3>
+      
+  <div class="qa-list">
+    
+      <div class="qa-item">
+        <p class="qa-q">Will the world really end?</p>
+        <p class="qa-a">This is only a local legend. It is a story, not a scientific fact.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">How old is this building?</p>
+        <p class="qa-a">It was built about 1,100 to 1,200 years ago, in the 9th or 10th century.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why did it fall down?</p>
+        <p class="qa-a">Time, weather, and old age caused parts of the wall and roof to collapse.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why do people stack seven bricks?</p>
+        <p class="qa-a">Seven is considered a lucky and complete number in local tradition.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Who was Khalifa Erejep?</p>
+        <p class="qa-a">Legend says he was a wise teacher who spread Islam in this region.</p>
+      </div>
+  </div>
+
+      <h3 class="section-title">Guide Vocabulary</h3>
+      
+  <table class="vocab-table">
+    <thead><tr><th>Easy English word</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="vw">ruin</td><td>the remains of an old, damaged building</td></tr><tr><td class="vw">rectangular</td><td>shaped like a rectangle</td></tr><tr><td class="vw">foundation</td><td>the base that supports a building</td></tr><tr><td class="vw">reed</td><td>a tall plant that grows near water</td></tr><tr><td class="vw">earthquake</td><td>a sudden shaking of the ground</td></tr><tr><td class="vw">collapse</td><td>to fall down suddenly</td></tr><tr><td class="vw">stack</td><td>to pile things on top of each other</td></tr><tr><td class="vw">lucky</td><td>bringing good fortune</td></tr><tr><td class="vw">spirit</td><td>the non-physical part of a person, believed to live after death</td></tr><tr><td class="vw">wise</td><td>having good knowledge and judgment</td></tr><tr><td class="vw">spread</td><td>to make something reach more people or places</td></tr><tr><td class="vw">photogenic</td><td>looking good in photographs</td></tr><tr><td class="vw">dramatic</td><td>exciting and impressive</td></tr><tr><td class="vw">survive</td><td>to continue to exist</td></tr><tr><td class="vw">remain</td><td>to still be present after time has passed</td></tr>
+    </tbody>
+  </table>
+
+      <div class="tip-fact-row">
+        
+  <div class="box box--tip">
+    <span class="box-label">Guide Tip</span>
+    <p>Let tourists build their own brick tower here. It only takes a minute, and people remember hands-on moments much better than facts alone.</p>
+  </div>
+        
+  <div class="box box--fact">
+    <span class="box-label">Did You Know?</span>
+    <p>Did you know? Engineers found that the building's reed foundation is a very early form of earthquake protection.</p>
+  </div>
+      </div>
+
+      <h3 class="section-title">Image Section</h3>
+      <div class="image-grid">
+        
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/mizdaxan5-0-0-0-0-1596019334.jpg" alt="The ruined wall of Khalifa Erejep with small brick towers nearby" loading="lazy">
+    </div>
+    <figcaption>The ruined wall of Khalifa Erejep with small brick towers nearby<span class="credit">Photo: uzbekistan.travel — fallen bricks stacked by pilgrims at the 'World Clock'</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://static.wixstatic.com/media/86e751_a8e801f45a9840bcbdad123cce7cc30c~mv2.jpeg/v1/fit/w_960,h_641,q_90,enc_avif,quality_auto/86e751_a8e801f45a9840bcbdad123cce7cc30c~mv2.jpeg" alt="Ruined walls in the older part of the necropolis" loading="lazy">
+    </div>
+    <figcaption>Ruined walls in the older part of the necropolis<span class="credit">Photo: intofarlands.com — ruined walls in the older part of the necropolis</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Historical reconstruction</span>
+    </div>
+    <figcaption>A drawing of the building when it was complete</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Architectural detail</span>
+    </div>
+    <figcaption>Close-up of a small seven-brick tower</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Map</span>
+    </div>
+    <figcaption>Location of Khalifa Erejep near Mazlumkhan Sulu</figcaption>
+  </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="mademin">
+    <div class="chapter-banner">
+      <span class="chapter-number">05</span>
+      <div class="chapter-heading">
+        <h2>Mademin Khan</h2>
+        <span class="pron-chip">(mah-deh-MEEN khan)</span>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      
+  <div class="quickfacts">
+    
+      <div class="qf-card">
+        <span class="qf-label">Location</span>
+        <span class="qf-value">Within the Mizdakhan necropolis, near other mausoleums</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Century</span>
+        <span class="qf-value">Medieval period (exact date not well documented)</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Type</span>
+        <span class="qf-value">Mausoleum</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Period</span>
+        <span class="qf-value">Islamic period</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Religion</span>
+        <span class="qf-value">Islamic</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Interesting fact</span>
+        <span class="qf-value">Historians know less about this site than the others.</span>
+      </div>
+  </div>
+      
+  <figure class="img-placeholder hero">
+    <div class="img-box img-box--photo">
+      <img src="https://central-asia.guide/wp-content/uploads/2021/09/mizdarkhan_necropolis-1-1024x683.jpg" alt="The mausoleum of Mademin Khan among nearby graves" loading="lazy">
+    </div>
+    <figcaption>The mausoleum of Mademin Khan among nearby graves<span class="credit">Photo: central-asia.guide — mausoleums and graves across the necropolis</span></figcaption>
+  </figure>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <h3 class="section-title">History</h3>
+      <p>The mausoleum of Mademin Khan is one of the many burial monuments inside the Mizdakhan necropolis. It stands among the many mausoleums, mosques, and graves that cover the hills of this ancient site.</p>
+<p>Historians are not completely sure about the exact century when it was built or full details of its history. It is less studied and less famous than Mazlumkhan Sulu or Shamun Nabi. But it is still an important part of the whole necropolis, which holds more than a hundred tombs from different centuries.</p>
+<p>Guides can tell tourists that Mizdakhan has many mausoleums like this one. Not every building has a famous legend, and that is completely normal for such a large and old necropolis.</p>
+
+      <div class="box box--legend">
+        <span class="box-label">Legend (local information is limited for this site)</span>
+        <p>There is no widely recorded legend for Mademin Khan that is separate and well documented, unlike Mazlumkhan Sulu or Shamun Nabi.</p>
+<p>Guides should be honest with tourists: not every mausoleum in Mizdakhan has a famous story. This mausoleum is a good example to show tourists that Mizdakhan is a real, working necropolis with many graves, not only a place of legends.</p>
+      </div>
+
+      <h3 class="section-title">Architecture</h3>
+      <p>Like other mausoleums here, it uses local baked brick. It sits among a large group of graves and monuments on the hill. Compared to Mazlumkhan Sulu, it has simpler architecture and less decoration.</p>
+<p>Guides do not need deep architectural detail here. It is enough to point it out as part of the wider necropolis landscape.</p>
+
+      <h3 class="section-title">Why Tourists Like It</h3>
+      
+  <ul class="brick-list">
+    <li>It shows the true scale of the necropolis — hundreds of graves, not just famous ones.</li><li>It is a good stop to explain how a necropolis works.</li><li>It gives tourists a break from long stories, with a shorter stop.</li>
+  </ul>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <div class="guide-story">
+        <span class="box-label">Guide Story <span class="story-time">~1 minute</span></span>
+        <p>"Look around you. Do you see how many mausoleums and graves are here? This one is called Mademin Khan.</p>
+<p>Not every mausoleum in Mizdakhan has a famous legend, and that's okay. This place is a real cemetery with a very long history. Some tombs are famous. Some are quiet and simple, like this one. Together, they show us the full story of Mizdakhan — a place used for burial for over 1,700 years."</p>
+      </div>
+
+      <h3 class="section-title">Tourist Questions</h3>
+      
+  <div class="qa-list">
+    
+      <div class="qa-item">
+        <p class="qa-q">Is there a legend for this place?</p>
+        <p class="qa-a">There is no well-known legend recorded for this site.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why is it less famous?</p>
+        <p class="qa-a">It is simply less studied than the more decorated mausoleums nearby.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Who was Mademin Khan?</p>
+        <p class="qa-a">Historians do not have full, confirmed details about this person.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Is it still worth visiting?</p>
+        <p class="qa-a">Yes — it helps tourists understand the full size of the necropolis.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Are there many places like this here?</p>
+        <p class="qa-a">Yes, Mizdakhan has more than one hundred tombs and mausoleums in total.</p>
+      </div>
+  </div>
+
+      <h3 class="section-title">Guide Vocabulary</h3>
+      
+  <table class="vocab-table">
+    <thead><tr><th>Easy English word</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="vw">monument</td><td>a structure built to remember a person or event</td></tr><tr><td class="vw">landscape</td><td>the visible features of an area of land</td></tr><tr><td class="vw">scale</td><td>the size of something</td></tr><tr><td class="vw">cemetery</td><td>a place where dead people are buried</td></tr><tr><td class="vw">documented</td><td>written down and recorded</td></tr><tr><td class="vw">confirmed</td><td>proven to be true or correct</td></tr><tr><td class="vw">studied</td><td>examined carefully by researchers</td></tr><tr><td class="vw">simple</td><td>plain; not complicated</td></tr><tr><td class="vw">decoration</td><td>extra designs added to make something look nice</td></tr><tr><td class="vw">honest</td><td>truthful</td></tr><tr><td class="vw">burial</td><td>the act of putting a dead body in the ground</td></tr><tr><td class="vw">group</td><td>a number of things placed together</td></tr><tr><td class="vw">quiet</td><td>calm; without much noise or attention</td></tr><tr><td class="vw">stop</td><td>a short pause during a tour</td></tr><tr><td class="vw">real</td><td>actually existing; genuine</td></tr>
+    </tbody>
+  </table>
+
+      <div class="tip-fact-row">
+        
+  <div class="box box--tip">
+    <span class="box-label">Guide Tip</span>
+    <p>Keep this stop brief. Use it to explain the size and variety of the necropolis rather than trying to invent a dramatic story.</p>
+  </div>
+        
+  <div class="box box--fact">
+    <span class="box-label">Did You Know?</span>
+    <p>Did you know? Mizdakhan holds more than a hundred tombs, and archaeologists are still studying many of them today.</p>
+  </div>
+      </div>
+
+      <h3 class="section-title">Image Section</h3>
+      <div class="image-grid">
+        
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://central-asia.guide/wp-content/uploads/2021/09/mizdarkhan_necropolis-1-1024x683.jpg" alt="The mausoleum of Mademin Khan among nearby graves" loading="lazy">
+    </div>
+    <figcaption>The mausoleum of Mademin Khan among nearby graves<span class="credit">Photo: central-asia.guide — mausoleums and graves across the necropolis</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://static.wixstatic.com/media/86e751_e5dcf222dcc24c9dae847b75a48328db~mv2.jpeg/v1/fit/w_960,h_641,q_90,enc_avif,quality_auto/86e751_e5dcf222dcc24c9dae847b75a48328db~mv2.jpeg" alt="A wider view showing the density of graves around the site" loading="lazy">
+    </div>
+    <figcaption>A wider view showing the density of graves around the site<span class="credit">Photo: intofarlands.com — a wider view of the necropolis hillside</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Historical reconstruction</span>
+    </div>
+    <figcaption>Not available — limited historical records exist for this site</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Architectural detail</span>
+    </div>
+    <figcaption>Close-up of the simple brickwork</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Map</span>
+    </div>
+    <figcaption>Location of Mademin Khan within the necropolis</figcaption>
+  </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="gyaur">
+    <div class="chapter-banner">
+      <span class="chapter-number">06</span>
+      <div class="chapter-heading">
+        <h2>Gyaur Qala (Gawir Qala)</h2>
+        <span class="pron-chip">(GYAH-oor kah-LAH)</span>
+      </div>
+    </div>
+
+    <div class="chapter-body">
+      
+  <div class="quickfacts">
+    
+      <div class="qf-card">
+        <span class="qf-label">Location</span>
+        <span class="qf-value">About 1 km from the main Mizdakhan complex</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Century</span>
+        <span class="qf-value">4th–3rd century BC</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Type</span>
+        <span class="qf-value">Ancient clay fortress</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Period</span>
+        <span class="qf-value">Pre-Islamic / early antiquity</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Religion</span>
+        <span class="qf-value">Zoroastrian (originally)</span>
+      </div>
+      <div class="qf-card">
+        <span class="qf-label">Interesting fact</span>
+        <span class="qf-value">Its walls are up to 10 metres high.</span>
+      </div>
+  </div>
+      
+  <figure class="img-placeholder hero">
+    <div class="img-box img-box--photo">
+      <img src="https://central-asia.guide/wp-content/uploads/2025/01/Mizdakhan-Gyaur-Kala-1024x682.jpg" alt="The tall clay walls of Gyaur Qala on the hillside" loading="lazy">
+    </div>
+    <figcaption>The tall clay walls of Gyaur Qala on the hillside<span class="credit">Photo: central-asia.guide — the clay walls of Gyaur Qala</span></figcaption>
+  </figure>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <h3 class="section-title">History</h3>
+      <p>Gyaur Qala is a large, ancient fortress. It stands on a hill about 1 kilometre from the main Mizdakhan hill, near the town of Khojeli. Builders made it around the 4th or 3rd century BC, long before Islam came to this region.</p>
+<p>The fortress covers a huge area — about 200 hectares. Its walls are up to 10 metres high in places. Inside the walls, archaeologists found the remains of two castles from different time periods. The older castle still has some standing towers.</p>
+<p>Experts believe the towers were not only for defence. Some may have also been used for religious ceremonies. Excavations found painted walls and carved clay decoration inside one of the castle courtyards. Gyaur Qala protected the people who once lived on the neighbouring hill, where the city of Mizdakhan later grew.</p>
+
+      <div class="box box--legend">
+        <span class="box-label">Historical background (based on archaeology, not legend)</span>
+        <p>Unlike some other sites at Mizdakhan, Gyaur Qala is mostly explained through archaeology, not folk stories. Its name comes from a word meaning 'infidel' or 'non-believer,' given during the period when Islam spread through the region.</p>
+<p>In the legend of Shamun Nabi, a rival ruler called 'Giaur' is said to have lived in a castle here. Local storytellers connect this character to the name of the fortress, linking the two sites together in the region's oral history.</p>
+      </div>
+
+      <h3 class="section-title">Architecture</h3>
+      <p>Builders made Gyaur Qala from clay, using local building methods of the ancient period. Its outer walls are tall — up to 10 metres — and follow the natural edge of the steep hill. Inside, visitors can see a maze-like layout of two castles from different centuries.</p>
+<p>One large courtyard once had living areas and ceremonial rooms around it. Traces of wall paintings and carved clay can still be found. A broken stone arch near the necropolis side marks where the old town gate once stood.</p>
+
+      <h3 class="section-title">Why Tourists Like It</h3>
+      
+  <ul class="brick-list">
+    <li>It shows a much older layer of history than the mausoleums.</li><li>The tall clay walls are impressive and dramatic.</li><li>It is quiet and far less crowded than the main necropolis.</li><li>It connects directly to the Shamun Nabi legend.</li>
+  </ul>
+
+      <div class="brick-divider" aria-hidden="true"><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick "></span><span class="brick brick--dark"></span><span class="brick "></span><span class="brick "></span><span class="brick "></span></div>
+      <div class="guide-story">
+        <span class="box-label">Guide Story <span class="story-time">~1 minute</span></span>
+        <p>"Now we leave the necropolis and walk toward Gyaur Qala. This fortress is much older than the mausoleums we just saw — it was built over 2,000 years ago!</p>
+<p>Look at these clay walls. Some are still 10 metres tall. This was once a strong, important fortress protecting the ancient city nearby. Remember the story about Shamun Nabi and his rival, Giaur? Local storytellers say this was Giaur's home.</p>
+<p>Watch your step here — the ground has old, hidden rooms below, and some areas are unstable."</p>
+      </div>
+
+      <h3 class="section-title">Tourist Questions</h3>
+      
+  <div class="qa-list">
+    
+      <div class="qa-item">
+        <p class="qa-q">How old is Gyaur Qala?</p>
+        <p class="qa-a">It was built around the 4th or 3rd century BC, over 2,000 years ago.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">What does the name mean?</p>
+        <p class="qa-a">It comes from a word meaning 'infidel' or 'non-believer.'</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Is it connected to Shamun Nabi?</p>
+        <p class="qa-a">Yes, local legend links this fortress to the rival character Giaur in that story.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Is it safe to walk around?</p>
+        <p class="qa-a">Mostly yes, but visitors should be careful of unstable, crumbling ground.</p>
+      </div>
+      <div class="qa-item">
+        <p class="qa-q">Why is it less visited than the necropolis?</p>
+        <p class="qa-a">It is farther away and less known, so fewer tour groups stop here.</p>
+      </div>
+  </div>
+
+      <h3 class="section-title">Guide Vocabulary</h3>
+      
+  <table class="vocab-table">
+    <thead><tr><th>Easy English word</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="vw">fortress</td><td>a strong building made for defence</td></tr><tr><td class="vw">clay</td><td>a type of heavy, sticky earth used for building</td></tr><tr><td class="vw">hectare</td><td>a unit used to measure the size of land</td></tr><tr><td class="vw">defence</td><td>protection against attack</td></tr><tr><td class="vw">ceremony</td><td>a formal event, often religious</td></tr><tr><td class="vw">courtyard</td><td>an open area surrounded by walls or buildings</td></tr><tr><td class="vw">excavation</td><td>digging carried out to find old objects or buildings</td></tr><tr><td class="vw">maze-like</td><td>confusing, with many paths, like a maze</td></tr><tr><td class="vw">arch</td><td>a curved structure over an opening</td></tr><tr><td class="vw">infidel</td><td>an old word for a person seen as a non-believer</td></tr><tr><td class="vw">steep</td><td>rising or falling sharply</td></tr><tr><td class="vw">unstable</td><td>not steady; likely to collapse</td></tr><tr><td class="vw">antiquity</td><td>ancient times, long ago</td></tr><tr><td class="vw">neighbouring</td><td>next to; nearby</td></tr><tr><td class="vw">remains</td><td>the parts left after something is destroyed or gone</td></tr>
+    </tbody>
+  </table>
+
+      <div class="tip-fact-row">
+        
+  <div class="box box--tip">
+    <span class="box-label">Guide Tip</span>
+    <p>Warn tourists clearly about uneven and hollow ground before entering. Point out a safe walking path first, then let people explore slowly.</p>
+  </div>
+        
+  <div class="box box--fact">
+    <span class="box-label">Did You Know?</span>
+    <p>Did you know? Gyaur Qala covers about 200 hectares — that is close to 300 football pitches!</p>
+  </div>
+      </div>
+
+      <h3 class="section-title">Image Section</h3>
+      <div class="image-grid">
+        
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://central-asia.guide/wp-content/uploads/2025/01/Mizdakhan-Gyaur-Kala-1024x682.jpg" alt="The tall clay walls of Gyaur Qala on the hillside" loading="lazy">
+    </div>
+    <figcaption>The tall clay walls of Gyaur Qala on the hillside<span class="credit">Photo: central-asia.guide — the clay walls of Gyaur Qala</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box img-box--photo">
+      <img src="https://central-asia.guide/wp-content/uploads/2025/01/Gyaur-Kala-at-Mizdakhan-1024x682.jpg" alt="Gyaur Qala seen across the surrounding hillside" loading="lazy">
+    </div>
+    <figcaption>Gyaur Qala seen across the surrounding hillside<span class="credit">Photo: central-asia.guide — Gyaur Qala seen across the hillside</span></figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Historical reconstruction</span>
+    </div>
+    <figcaption>A drawing of the fortress as it may have looked when new</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Architectural detail</span>
+    </div>
+    <figcaption>Close-up of the ancient clay brickwork and towers</figcaption>
+  </figure>
+  <figure class="img-placeholder ">
+    <div class="img-box">
+      <span class="img-tag">Map</span>
+    </div>
+    <figcaption>Location of Gyaur Qala relative to the main Mizdakhan complex</figcaption>
+  </figure>
+      </div>
+    </div>
+  </section>
+
+<section class="page alt" id="timeline">
+  <div class="wrap">
+    <span class="eyebrow-label">Chronology</span>
+    <h2 class="page-title">Timeline of Mizdakhan</h2>
+    <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">4th century BC</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">The first settlement is founded on the western hill. This is the start of Mizdakhan and the nearby fortress of Gyaur Qala.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">4th century BC – 4th century AD</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">The city grows under Zoroastrian traditions. People bury their dead using ossuaries, special containers for bones.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">5th – 8th century AD</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">The city keeps growing. New public buildings appear on the site.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">7th – 8th century AD</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">Arab conquerors bring Islam to the region. Burial customs slowly change from Zoroastrian to Islamic practice.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">9th – 10th century</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">Builders construct the Khalifa Erejep mausoleum, one of the oldest structures still visible today.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">9th – 12th century</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">The city enters a period of revival. A fortified citadel is built.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">12th – 14th century</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">Mizdakhan reaches its golden age under the Golden Horde. Builders construct Mazlumkhan Sulu and other grand mausoleums.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1221 AD</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">Genghis Khan's army destroys Mizdakhan and nearby Kunya Urgench during the Mongol invasion.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1388 AD</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">Amir Timur (Tamerlane) attacks the region again during his campaign toward Kunya Urgench.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">14th century onward</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">The city is no longer a living town, but people continue using it as a sacred burial ground.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">18th century</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">A later version of the Shamun Nabi mausoleum is built over the older ruins.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">20th century</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">Local people continue building small tombs and mosques on the site, showing its long-lasting spiritual importance.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2018</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">The old Shamun Nabi structure is taken down due to water damage, and a new building is constructed in its place.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">Today</div>
+      <div class="tl-line"><span class="tl-dot"></span></div>
+      <div class="tl-text">Mizdakhan is a major tourist site in Karakalpakstan and remains an active place of prayer and pilgrimage.</div>
+    </div></div>
+  </div>
+</section>
+
+<section class="page" id="glossary">
+  <div class="wrap">
+    <span class="eyebrow-label">Reference</span>
+    <h2 class="page-title">Glossary</h2>
+    <p>50 easy English words used in this guide.</p>
+    <div class="gloss-grid">
+    <div class="gloss-item"><span class="gloss-term">ancient</span><span class="gloss-def">very old; from a long time ago</span></div>
+    <div class="gloss-item"><span class="gloss-term">antiquity</span><span class="gloss-def">ancient times</span></div>
+    <div class="gloss-item"><span class="gloss-term">arch</span><span class="gloss-def">a curved structure over a doorway or opening</span></div>
+    <div class="gloss-item"><span class="gloss-term">archaeologist</span><span class="gloss-def">a scientist who studies old objects and places</span></div>
+    <div class="gloss-item"><span class="gloss-term">architect</span><span class="gloss-def">a person who designs buildings</span></div>
+    <div class="gloss-item"><span class="gloss-term">belief</span><span class="gloss-def">something a person accepts as true</span></div>
+    <div class="gloss-item"><span class="gloss-term">brick</span><span class="gloss-def">a small block used for building</span></div>
+    <div class="gloss-item"><span class="gloss-term">burial</span><span class="gloss-def">the act of putting a dead body in the ground</span></div>
+    <div class="gloss-item"><span class="gloss-term">caliph</span><span class="gloss-def">a Muslim religious and political leader</span></div>
+    <div class="gloss-item"><span class="gloss-term">cemetery</span><span class="gloss-def">a place where dead people are buried</span></div>
+    <div class="gloss-item"><span class="gloss-term">century</span><span class="gloss-def">a period of one hundred years</span></div>
+    <div class="gloss-item"><span class="gloss-term">citadel</span><span class="gloss-def">a strong fortress inside or near a city</span></div>
+    <div class="gloss-item"><span class="gloss-term">clay</span><span class="gloss-def">a type of heavy earth used for building</span></div>
+    <div class="gloss-item"><span class="gloss-term">collapse</span><span class="gloss-def">to fall down suddenly</span></div>
+    <div class="gloss-item"><span class="gloss-term">conquest</span><span class="gloss-def">the act of taking control of a place by force</span></div>
+    <div class="gloss-item"><span class="gloss-term">courtyard</span><span class="gloss-def">an open space surrounded by walls or buildings</span></div>
+    <div class="gloss-item"><span class="gloss-term">decoration</span><span class="gloss-def">designs added to make something look nice</span></div>
+    <div class="gloss-item"><span class="gloss-term">documented</span><span class="gloss-def">written down and recorded</span></div>
+    <div class="gloss-item"><span class="gloss-term">dome</span><span class="gloss-def">a round roof shaped like half a ball</span></div>
+    <div class="gloss-item"><span class="gloss-term">dynasty</span><span class="gloss-def">a series of rulers from the same family</span></div>
+    <div class="gloss-item"><span class="gloss-term">earthquake</span><span class="gloss-def">a sudden shaking of the ground</span></div>
+    <div class="gloss-item"><span class="gloss-term">empire</span><span class="gloss-def">a large group of countries or regions ruled by one power</span></div>
+    <div class="gloss-item"><span class="gloss-term">excavation</span><span class="gloss-def">digging to find old buildings or objects</span></div>
+    <div class="gloss-item"><span class="gloss-term">fortress</span><span class="gloss-def">a strong building made for defence</span></div>
+    <div class="gloss-item"><span class="gloss-term">foundation</span><span class="gloss-def">the base that supports a building</span></div>
+    <div class="gloss-item"><span class="gloss-term">heritage</span><span class="gloss-def">buildings, traditions, or objects passed down from the past</span></div>
+    <div class="gloss-item"><span class="gloss-term">holy</span><span class="gloss-def">connected to God or religion</span></div>
+    <div class="gloss-item"><span class="gloss-term">Islamic</span><span class="gloss-def">connected to the religion of Islam</span></div>
+    <div class="gloss-item"><span class="gloss-term">khan</span><span class="gloss-def">a ruler or leader in Central Asian history</span></div>
+    <div class="gloss-item"><span class="gloss-term">legend</span><span class="gloss-def">an old story that may or may not be true</span></div>
+    <div class="gloss-item"><span class="gloss-term">majolica</span><span class="gloss-def">a type of colourful glazed tile</span></div>
+    <div class="gloss-item"><span class="gloss-term">mausoleum</span><span class="gloss-def">a special building built over a grave</span></div>
+    <div class="gloss-item"><span class="gloss-term">medieval</span><span class="gloss-def">from the Middle Ages, roughly 500–1500 AD</span></div>
+    <div class="gloss-item"><span class="gloss-term">monument</span><span class="gloss-def">a structure built to remember a person or event</span></div>
+    <div class="gloss-item"><span class="gloss-term">mound</span><span class="gloss-def">a small, round hill, often man-made</span></div>
+    <div class="gloss-item"><span class="gloss-term">muqarnas</span><span class="gloss-def">a decorative honeycomb-like carving used in Islamic buildings</span></div>
+    <div class="gloss-item"><span class="gloss-term">myth</span><span class="gloss-def">a traditional story, often about gods or legendary events</span></div>
+    <div class="gloss-item"><span class="gloss-term">necropolis</span><span class="gloss-def">a large ancient cemetery</span></div>
+    <div class="gloss-item"><span class="gloss-term">niche</span><span class="gloss-def">a small hollow space in a wall</span></div>
+    <div class="gloss-item"><span class="gloss-term">ossuary</span><span class="gloss-def">a container used to hold human bones</span></div>
+    <div class="gloss-item"><span class="gloss-term">pilgrim</span><span class="gloss-def">a person who travels to a holy place</span></div>
+    <div class="gloss-item"><span class="gloss-term">pilgrimage</span><span class="gloss-def">a journey to a holy place</span></div>
+    <div class="gloss-item"><span class="gloss-term">portal</span><span class="gloss-def">a grand entrance to a building</span></div>
+    <div class="gloss-item"><span class="gloss-term">reconstruction</span><span class="gloss-def">a new copy or rebuilding of something old</span></div>
+    <div class="gloss-item"><span class="gloss-term">restore</span><span class="gloss-def">to fix an old building so it looks good again</span></div>
+    <div class="gloss-item"><span class="gloss-term">ruins</span><span class="gloss-def">the remaining parts of an old, damaged building</span></div>
+    <div class="gloss-item"><span class="gloss-term">sacred</span><span class="gloss-def">holy; deeply respected</span></div>
+    <div class="gloss-item"><span class="gloss-term">sarcophagus</span><span class="gloss-def">a stone or brick coffin, often decorated</span></div>
+    <div class="gloss-item"><span class="gloss-term">saint</span><span class="gloss-def">a person seen as holy or blessed</span></div>
+    <div class="gloss-item"><span class="gloss-term">tentative list</span><span class="gloss-def">a list of sites a country may nominate for UNESCO status</span></div>
+    <div class="gloss-item"><span class="gloss-term">Zoroastrian</span><span class="gloss-def">connected to an ancient religion once common in this region</span></div></div>
+  </div>
+</section>
+
+<section class="page alt" id="sentences">
+  <div class="wrap">
+    <span class="eyebrow-label">Reference</span>
+    <h2 class="page-title">Useful Sentences for Guides</h2>
+    <p>About 100 short sentences you can use with tourists.</p>
+    
+    <div class="sentence-group">
+      <h3 class="section-title">Meeting Your Tourists</h3>
+      <ol class="sentence-list">
+        <li>Hello everyone, welcome to Mizdakhan!</li><li>My name is ___, and I will be your guide today.</li><li>Thank you for joining this tour.</li><li>Is everyone here? Let's count our group.</li><li>Please stay close to me during the tour.</li><li>If you have any questions, please ask at any time.</li><li>This tour will take about ___ minutes.</li><li>We will visit six main places today.</li><li>Please bring water, especially in summer.</li><li>Do you all understand English well, or should I speak slowly?</li><li>Let's begin our walk to the first mausoleum.</li><li>Feel free to take photos as we walk.</li><li>Please turn off flash photography inside the buildings.</li><li>Let me know if you need a short break.</li><li>Is anyone tired or feeling unwell?</li><li>Let's stay together as a group, please.</li>
+      </ol>
+    </div>
+    <div class="sentence-group">
+      <h3 class="section-title">Walking and Safety</h3>
+      <ol class="sentence-list">
+        <li>Please watch your step here.</li><li>The stairs are old, so please go down slowly.</li><li>Please hold the rail if there is one.</li><li>This ground is uneven, so please be careful.</li><li>Please do not walk on the mound.</li><li>Please do not touch the old bricks.</li><li>This area is fragile, so please stay on the path.</li><li>Let's wait here until everyone arrives.</li><li>Please follow me closely in this narrow passage.</li><li>Be careful, the floor may be slippery after rain.</li><li>There are no toilets here, so please plan ahead.</li><li>It can be very hot, so please wear a hat.</li><li>Please wear comfortable shoes for walking.</li><li>Let's move to a shady spot for a moment.</li><li>Please do not climb on the ruins.</li><li>This part of the ground is hollow, so please stay back.</li><li>Let's continue this way, please follow me.</li>
+      </ol>
+    </div>
+    <div class="sentence-group">
+      <h3 class="section-title">Explaining History and Buildings</h3>
+      <ol class="sentence-list">
+        <li>This building was built in the ___ century.</li><li>This mausoleum is one of the oldest in Mizdakhan.</li><li>This site has a history of over 1,700 years.</li><li>Builders used baked bricks to make this wall.</li><li>This dome protects the room from sun and rain.</li><li>Historians are not completely sure about every detail here.</li><li>Archaeologists found many objects during their excavations.</li><li>This decoration is called majolica.</li><li>This underground room was probably used for prayer first.</li><li>This fortress is much older than the mausoleums.</li><li>The walls here are made of clay, not brick.</li><li>This part of the necropolis was built later, in the medieval period.</li><li>Mizdakhan was once the second-largest city in the region.</li><li>This site combines Zoroastrian and Islamic traditions.</li><li>This building was damaged and later rebuilt.</li><li>You can still see the original foundation here.</li><li>This structure has survived for many centuries.</li>
+      </ol>
+    </div>
+    <div class="sentence-group">
+      <h3 class="section-title">Telling Legends</h3>
+      <ol class="sentence-list">
+        <li>According to local legend, this is the grave of a famous couple.</li><li>This is a legend, not a proven historical fact.</li><li>Local people believe this brick wall counts down to the end of the world.</li><li>This story has been passed down for many generations.</li><li>Some people believe this tomb grows a little every year.</li><li>This legend explains why local people call it the 'World Clock.'</li><li>There are several different versions of this story.</li><li>This is one of my favourite legends at Mizdakhan.</li><li>No one can prove this legend, but it is a beautiful story.</li><li>Local guides have told this story for many years.</li><li>This character appears in more than one legend here.</li><li>You will hear this legend again at our next stop.</li><li>This tradition is still followed by visitors today.</li><li>People say seven is a lucky number in this legend.</li><li>This story connects two different places at Mizdakhan.</li><li>Some scholars connect this legend to older Zoroastrian beliefs.</li>
+      </ol>
+    </div>
+    <div class="sentence-group">
+      <h3 class="section-title">Questions and Photos</h3>
+      <ol class="sentence-list">
+        <li>Do you have any questions about this place?</li><li>That is a great question, let me explain.</li><li>I'm not sure of the exact answer, but I will find out for you.</li><li>Would you like to take a photo here?</li><li>This is a great spot for photos.</li><li>Please stand here for the best photo angle.</li><li>Would anyone like to try building a small brick tower?</li><li>Feel free to ask questions, there are no silly ones.</li><li>Does anyone want to know more about this legend?</li><li>I can repeat that explanation if needed.</li><li>Let me show you on the map where we are.</li><li>This is a popular photo spot for visitors.</li>
+      </ol>
+    </div>
+    <div class="sentence-group">
+      <h3 class="section-title">Ending the Tour</h3>
+      <ol class="sentence-list">
+        <li>This is the last stop on our tour today.</li><li>Thank you all for listening and asking great questions.</li><li>I hope you enjoyed learning about Mizdakhan.</li><li>Please let me know if you have any final questions.</li><li>Our van will meet us near the entrance.</li><li>Thank you for visiting Mizdakhan with us today.</li><li>I hope you have a wonderful rest of your trip.</li><li>Please remember to bring water next time it's hot.</li><li>It was a pleasure being your guide today.</li><li>Safe travels, and thank you again!</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="sources">
+  <div class="wrap">
+    <span class="eyebrow-label">Reference</span>
+    <h2 class="page-title">Sources</h2>
+    <p>This guide uses reliable historical and tourism sources. Where information is uncertain, the text says so clearly ("according to local legend" or "historians are not completely sure").</p>
+    <ul class="sources-list"><li>UNESCO World Heritage Centre — Tentative Lists (whc.unesco.org)</li><li>Wikipedia — 'Mizdarkhan' and 'Mizdahkan' articles</li><li>Lonely Planet — Mizdakhan Necropolis destination guide</li><li>Central Asia Guide — 'Mizdarkhan Complex' destination page</li><li>Marco Polo Travel Guide — Historical and Archaeological Complex Mizdakhan</li><li>uzbekistan.travel — 'Ancient necropolis of Mizdakhan'</li><li>orexca.com — Mizdakhan Necropolis, Karakalpakstan</li><li>Bradt Guides — Karakalpakstan Travel Information and Guide</li><li>silkadv.com — Mausoleum of Mazlumkhan Sulu (regional history archive)</li><li>Local guide narration and oral tradition collected from Mizdakhan site guides</li></ul>
+  </div>
+</section>
+
+<footer class="book-footer">
+  Mizdakhan — The Sacred City of Legends · A Simple English Guide for Tour Guides
+</footer>
+
+</body>
+</html>
